@@ -1,5 +1,5 @@
 # Hi 👋, I'm Leonardo Correia Moura 
-
+--
 🚀 **Junior Software Engineer | 🇧🇷 Brazil
 
 Tenho foco em tecnologia e desenvolvimento, especialmente na área de programação. Como estudante de Engenharia de Software, busco aplicar meus conhecimentos na prática por meio da criação de aplicações, jogos e soluções digitais.
@@ -21,7 +21,7 @@ Sou objetivo, eficiente e orientado a resultados, com um perfil técnico e prát
   <a href="https://instagram.com/oreidosites">
     <img src="https://img.shields.io/badge/Instagram-@leleo_zzz-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
 
- 
+ ---
 
 ## 🛠️ Tech Stack
 
@@ -33,7 +33,7 @@ Sou objetivo, eficiente e orientado a resultados, com um perfil técnico e prát
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs)
 ![Tailwind](https://img.shields.io/badge/TailwindCSS-38BDF8?style=for-the-badge&logo=tailwindcss)
 ![Styled Components](https://img.shields.io/badge/Styled--Components-DB7093?style=for-the-badge&logo=styled-components)
-
+-
 ### Backend
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs)
@@ -42,7 +42,7 @@ Sou objetivo, eficiente e orientado a resultados, com um perfil técnico e prát
 ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql)
-
+-
 ### DevOps & Tools
 
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker)
