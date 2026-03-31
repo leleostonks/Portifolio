@@ -1,4 +1,4 @@
-### Hi 👋, I'm Leonardo Correia Moura 
+##### Hi 👋, I'm Leonardo Correia Moura 
 
 ### Junior Software Engineer | 🇧🇷 Brazil
 
