@@ -1,6 +1,6 @@
-# Hi 👋, I'm Leonardo Correia Moura 
+### Hi 👋, I'm Leonardo Correia Moura 
 
-🚀 Junior Software Engineer | 🇧🇷 Brazil
+### Junior Software Engineer | 🇧🇷 Brazil
 
 Tenho foco em tecnologia e desenvolvimento, especialmente na área de programação. Como estudante de Engenharia de Software, busco aplicar meus conhecimentos na prática por meio da criação de aplicações, jogos e soluções digitais.
 
@@ -13,16 +13,16 @@ Tenho grande interesse em seguir carreira em cybersecurity, com foco na proteç�
 Sou objetivo, eficiente e orientado a resultados, com um perfil técnico e prático voltado à geração de valor no mercado.
 
 
-## 🌐 Where to find me
+### 🌐 Where to find me
 
   </a>
   <a href="https://instagram.com/oreidosites">
     <img src="https://img.shields.io/badge/Instagram-@leleo_zzz-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
 
 
- 🛠️ Tech Stack
+ ### 🛠️ Tech Stack
 
-## Frontend
+### Frontend
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-FFD43B?style=for-the-badge&logo=javascript&logoColor=000)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript)
@@ -31,7 +31,7 @@ Sou objetivo, eficiente e orientado a resultados, com um perfil técnico e prát
 ![Tailwind](https://img.shields.io/badge/TailwindCSS-38BDF8?style=for-the-badge&logo=tailwindcss)
 ![Styled Components](https://img.shields.io/badge/Styled--Components-DB7093?style=for-the-badge&logo=styled-components)
 
-## Backend
+### Backend
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs)
 ![.NET](https://img.shields.io/badge/.NET-512BD4?style=for-the-badge&logo=dotnet)
@@ -40,7 +40,7 @@ Sou objetivo, eficiente e orientado a resultados, com um perfil técnico e prát
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql)
 
-## DevOps & Tools
+### DevOps & Tools
 
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker)
 ![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel)
