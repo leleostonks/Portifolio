@@ -13,14 +13,14 @@ Tenho grande interesse em seguir carreira em cybersecurity, com foco na proteç�
 Sou objetivo, eficiente e orientado a resultados, com um perfil técnico e prático voltado à geração de valor no mercado.
 
 
-### 🌐 Where to find me
+###🌐 Where to find me
 
   </a>
   <a href="https://instagram.com/oreidosites">
     <img src="https://img.shields.io/badge/Instagram-@leleo_zzz-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
 
 
- ### 🛠️ Tech Stack
+ ###🛠️ Tech Stack
 
 ### Frontend
 
