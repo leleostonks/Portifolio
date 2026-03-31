@@ -1,6 +1,6 @@
 # Hi 👋, I'm Leonardo Correia Moura 
 
-🚀 **Junior Software Engineer | 🇧🇷 Brazil
+🚀 Junior Software Engineer | 🇧🇷 Brazil
 
 Tenho foco em tecnologia e desenvolvimento, especialmente na área de programação. Como estudante de Engenharia de Software, busco aplicar meus conhecimentos na prática por meio da criação de aplicações, jogos e soluções digitais.
 
@@ -19,7 +19,9 @@ Sou objetivo, eficiente e orientado a resultados, com um perfil técnico e prát
   <a href="https://instagram.com/oreidosites">
     <img src="https://img.shields.io/badge/Instagram-@leleo_zzz-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
 
+
 ## 🛠️ Tech Stack
+
 ### Frontend
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-FFD43B?style=for-the-badge&logo=javascript&logoColor=000)
