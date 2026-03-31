@@ -2,10 +2,15 @@
 
 🚀 **Junior Software Engineer | 🇧🇷 Brazil
 
-I build **scalable products**, **SaaS platforms**, and **high-performance web systems**.  
-I’m deeply focused on **architecture, performance, clean code, and business-driven solutions**.
+Tenho foco em tecnologia e desenvolvimento, especialmente na área de programação. Como estudante de Engenharia de Software, busco aplicar meus conhecimentos na prática por meio da criação de aplicações, jogos e soluções digitais.
 
-I also create content and share knowledge on **software development, SaaS, and tech entrepreneurship**.
+Possuo experiência em e-commerce, com atuação em atendimento ao cliente, vendas e gestão de pedidos e logística, o que me proporciona uma visão integrada entre tecnologia e negócio.
+
+Tenho interesse em inovação, inteligência artificial, cibersegurança e desenvolvimento de software, sempre valorizando o aprendizado contínuo e o acompanhamento das tendências do mercado. Gosto de trabalhar em projetos práticos e desafiadores, que exigem raciocínio técnico e resolução de problemas.
+
+Tenho grande interesse em seguir carreira em cybersecurity, com foco na proteção de sistemas, redes e dados, atuando na identificação de vulnerabilidades, prevenção de ataques e desenvolvimento de soluções seguras desde a concepção das aplicações.
+
+Sou objetivo, eficiente e orientado a resultados, com um perfil técnico e prático voltado à geração de valor no mercado.
 
 ---
 
@@ -20,16 +25,9 @@ I also create content and share knowledge on **software development, SaaS, and t
 
 ---
 
-## 🧠 What I do
 
--   🏗️ SaaS & High-scale systems
--   ⚡ Performance optimization
--   🧩 Clean architecture & system design
--   🔐 Secure APIs & authentication
--   💳 Payments, subscriptions & business logic
--   🤖 Automation & integrations
--   📊 Dashboards & analytics
--   🎓 Teaching & mentoring developers
+
+-   
 
 ---
 
