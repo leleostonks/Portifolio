@@ -23,14 +23,6 @@ Sou objetivo, eficiente e orientado a resultados, com um perfil técnico e prát
 
  
 
----
-
-
-
--   
-
----
-
 ## 🛠️ Tech Stack
 
 ### Frontend
