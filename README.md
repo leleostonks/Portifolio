@@ -20,7 +20,7 @@ Sou objetivo, eficiente e orientado a resultados, com um perfil técnico e prát
   <a href="https://instagram.com/oreidosites">
     <img src="https://img.shields.io/badge/Instagram-@leleo_zzz-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
 
- ---
+ 
 
 ## 🛠️ Tech Stack
 
@@ -32,7 +32,7 @@ Sou objetivo, eficiente e orientado a resultados, com um perfil técnico e prát
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs)
 ![Tailwind](https://img.shields.io/badge/TailwindCSS-38BDF8?style=for-the-badge&logo=tailwindcss)
 ![Styled Components](https://img.shields.io/badge/Styled--Components-DB7093?style=for-the-badge&logo=styled-components)
--
+
 ### Backend
 
 ![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs)
