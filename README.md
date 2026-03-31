@@ -1,5 +1,5 @@
 # Hi 👋, I'm Leonardo Correia Moura 
----
+
 🚀 **Junior Software Engineer | 🇧🇷 Brazil
 
 Tenho foco em tecnologia e desenvolvimento, especialmente na área de programação. Como estudante de Engenharia de Software, busco aplicar meus conhecimentos na prática por meio da criação de aplicações, jogos e soluções digitais.
@@ -12,7 +12,6 @@ Tenho grande interesse em seguir carreira em cybersecurity, com foco na proteç�
 
 Sou objetivo, eficiente e orientado a resultados, com um perfil técnico e prático voltado à geração de valor no mercado.
 
----
 
 ## 🌐 Where to find me
 
@@ -48,7 +47,7 @@ Sou objetivo, eficiente e orientado a resultados, com um perfil técnico e prát
 ![Insomnia](https://img.shields.io/badge/Insomnia-5849BE?style=for-the-badge&logo=insomnia)
 ![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma)
 
----
+
 
 
 
