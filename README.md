@@ -16,7 +16,6 @@ Sou objetivo, eficiente e orientado a resultados, com um perfil técnico e prát
 
 ## 🌐 Where to find me
 
-
   </a>
   <a href="https://instagram.com/oreidosites">
     <img src="https://img.shields.io/badge/Instagram-@leleo_zzz-E4405F?style=for-the-badge&logo=instagram&logoColor=white" />
