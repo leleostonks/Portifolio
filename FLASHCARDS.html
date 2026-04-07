@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My study IA</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Study IA - Aprenda com seus PDFs</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e2a3a 0%, #0f1724 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        /* Container principal estilo card */
+        .app-container {
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(2px);
+            border-radius: 2rem;
+            padding: 20px;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 1.8rem ;
+        }
+        .header h1 {
+            font-size: 2rem;
+            background: linear-gradient(135deg, #fff, #a5f3ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+        .header p {
+            color: #cbd5e6;
+            margin-top: 8px;
+            font-size: 0.9rem;
+        }
+
+        /* Área de upload */
+        .upload-area {
+            background: #0f1724cc;
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            margin-bottom: 1.8rem;
+            border: 1px dashed #4f9eff;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .upload-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #2d3e5a;
+            padding: 10px 20px;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: bold;
+            color: white;
+            transition: 0.2s;
+        }
+        .upload-label:hover {
+            background: #3e5a7c;
+            transform: scale(1.02);
+        }
+        input#pdfInput {
+            display: none;
+        }
+        .file-info {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #b9d0f0;
+        }
+        .generate-btn {
+            background: #3b82f6;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 1rem;
+            color: white;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+            font-weight: 600;
+        }
+        .generate-btn:disabled {
+            background: #4b5563;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+        .generate-btn:hover:not(:disabled) {
+            background: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        /* Loading e status */
+        .loading {
+            text-align: center;
+            padding: 25px;
+            color: #facc15;
+            font-weight: bold;
+            background: #00000066;
+            border-radius: 1rem;
+            margin: 15px 0;
+        }
+        .error {
+            background: #991b1b99;
+            padding: 12px;
+            border-radius: 1rem;
+            color: #ffb4a2;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        /* Flashcard principal */
+        .flashcard-area {
+            perspective: 1200px;
+            margin: 25px 0;
+        }
+        .flashcard {
+            background: #fef9e8;
+            background-image: radial-gradient(circle at 10% 30%, rgba(255,245,215,0.8) 2%, #fff4e0 90%);
+            border-radius: 28px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.2s;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,215,150,0.6);
+            position: relative;
+        }
+        .flashcard:hover {
+            transform: scale(1.01);
+            box-shadow: 0 25px 35px -12px black;
+        }
+        .card-content {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #1e293b;
+            word-break: break-word;
+            max-width: 100%;
+        }
+        .flip-hint {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: #7c6b4b;
+            background: #e9e0ce80;
+            padding: 5px 12px;
+            border-radius: 40px;
+            display: inline-block;
+        }
+        /* Navegação flashcards */
+        .nav-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .nav-btn {
+            background: #1e2f41;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            transition: 0.2s;
+            flex: 1;
+        }
+        .nav-btn:disabled {
+            background: #374151;
+            cursor: default;
+            opacity: 0.5;
+        }
+        .counter {
+            background: #00000066;
+            padding: 8px 18px;
+            border-radius: 60px;
+            font-weight: bold;
+            color: #e2e8f0;
+        }
+        .reset-btn {
+            background: #f97316;
+            margin-top: 20px;
+            width: 100%;
+            padding: 10px;
+            border-radius: 40px;
+            border: none;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Estatísticas */
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            background: #0a0f1a99;
+            padding: 12px 18px;
+            border-radius: 60px;
+            margin-top: 15px;
+            font-size: 0.8rem;
+            color: #cbd5e1;
+        }
+
+        @media (max-width: 550px) {
+            .card-content { font-size: 1.2rem; }
+            .flashcard { min-height: 260px; padding: 1.2rem; }
+        }
+        footer {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #6c86a3;
+            margin-top: 20px;
+        }
+        button {
+            font-family: inherit;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <div class="header">
+        <h1>📘 FlashCards IA</h1>
+        <p>Envie um PDF → O app gera perguntas automáticas e você estuda com flashcards</p>
+    </div>
+
+    <!-- Área upload PDF -->
+    <div class="upload-area">
+        <label class="upload-label" for="pdfInput">
+            📂 📄 Selecionar arquivo PDF
+        </label>
+        <input type="file" id="pdfInput" accept=".pdf">
+        <div class="file-info" id="fileInfo">Nenhum arquivo selecionado</div>
+        <button id="generateBtn" class="generate-btn">✨ Gerar Flashcards a partir do PDF</button>
+    </div>
+
+    <!-- Área de status / loading / erro -->
+    <div id="statusArea"></div>
+
+    <!-- Área do flashcard (oculta até gerar) -->
+    <div id="flashcardContainer" style="display: none;">
+        <div class="flashcard-area">
+            <div class="flashcard" id="flashcard">
+                <div class="card-content" id="cardText">Clique para virar</div>
+                <div class="flip-hint">🔄 toque ou clique no card para mostrar resposta</div>
+            </div>
+        </div>
+        <div class="nav-controls">
+            <button id="prevBtn" class="nav-btn">◀ Anterior</button>
+            <span id="cardCounter" class="counter">0 / 0</span>
+            <button id="nextBtn" class="nav-btn">Próximo ▶</button>
+        </div>
+        <div class="stats" id="statsArea">
+            <span>📊 Progresso: </span>
+            <span id="progressText">0% revisado</span>
+        </div>
+        <button id="resetCardsBtn" class="reset-btn">🔄 Reiniciar Flashcards / Novo Estudo</button>
+    </div>
+    <footer>🧠 IA simples integrada: extrai texto do PDF e gera perguntas/respostas automaticamente.</footer>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+<script>
+    // Configuração do worker para PDF.js
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+    // Estado do app
+    let flashcards = [];          // array de objetos {pergunta, resposta}
+    let currentIndex = 0;
+    let isFlipped = false;        // estado atual do card (mostrando pergunta ou resposta)
+    let viewedCards = new Set();   // controle de cards já visualizados (para estatística)
+    
+    // Elementos DOM
+    const pdfInput = document.getElementById('pdfInput');
+    const fileInfoSpan = document.getElementById('fileInfo');
+    const generateBtn = document.getElementById('generateBtn');
+    const statusArea = document.getElementById('statusArea');
+    const flashcardContainer = document.getElementById('flashcardContainer');
+    const flashcardDiv = document.getElementById('flashcard');
+    const cardTextSpan = document.getElementById('cardText');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const cardCounterSpan = document.getElementById('cardCounter');
+    const progressTextSpan = document.getElementById('progressText');
+    const resetCardsBtn = document.getElementById('resetCardsBtn');
+
+    let currentFile = null;
+
+    // Helper: limpar status com erro ou loading
+    function showStatus(message, isError = false) {
+        statusArea.innerHTML = `<div class="${isError ? 'error' : 'loading'}">${message}</div>`;
+        if (!isError && message.includes('sucesso')) {
+            setTimeout(() => {
+                if(statusArea.innerHTML.includes('sucesso')) statusArea.innerHTML = '';
+            }, 2500);
+        } else if (isError) {
+            setTimeout(() => {
+                if(statusArea.innerHTML.includes('error')) statusArea.innerHTML = '';
+            }, 4000);
+        }
+    }
+
+    function clearStatus() {
+        statusArea.innerHTML = '';
+    }
+
+    // Atualiza contador e estatísticas
+    function updateUI() {
+        if (!flashcards.length) return;
+        // atualizar contador
+        cardCounterSpan.innerText = `${currentIndex+1} / ${flashcards.length}`;
+        
+        // atualizar progresso: cards já "vistos" (visualizados pelo menos uma vez)
+        const percent = Math.round((viewedCards.size / flashcards.length) * 100);
+        progressTextSpan.innerText = `${percent}% revisado (${viewedCards.size}/${flashcards.length})`;
+        
+        // mostrar conteúdo do card atual baseado no estado flipped
+        if (!isFlipped) {
+            cardTextSpan.innerText = flashcards[currentIndex].pergunta;
+            flashcardDiv.style.background = "#fef9e8";
+        } else {
+            cardTextSpan.innerText = flashcards[currentIndex].resposta;
+            flashcardDiv.style.background = "#e0f2fe";
+        }
+        
+        // Marcar card atual como visto ao mostrar pergunta ou resposta? 
+        // Melhor: quando usuário virar ou navegar, já conta. Vamos marcar como visto se ao menos mostramos pergunta.
+        if (!viewedCards.has(currentIndex)) {
+            viewedCards.add(currentIndex);
+            // atualiza progresso novamente
+            const newPercent = Math.round((viewedCards.size / flashcards.length) * 100);
+            progressTextSpan.innerText = `${newPercent}% revisado (${viewedCards.size}/${flashcards.length})`;
+        }
+    }
+    
+    // Resetar estado de estudo (sem perder flashcards)
+    function resetStudySession() {
+        if (!flashcards.length) return;
+        currentIndex = 0;
+        isFlipped = false;
+        viewedCards.clear();
+        updateUI();
+        showStatus("🔄 Estudo reiniciado! Todos os cards estão como não vistos.", false);
+    }
+    
+    // Navegação
+    function goPrev() {
+        if (!flashcards.length) return;
+        if (currentIndex > 0) {
+            currentIndex--;
+            isFlipped = false;
+            updateUI();
+        } else {
+            showStatus("📍 Você está no primeiro card.", false);
+            setTimeout(() => clearStatus(), 1000);
+        }
+    }
+    
+    function goNext() {
+        if (!flashcards.length) return;
+        if (currentIndex < flashcards.length - 1) {
+            currentIndex++;
+            isFlipped = false;
+            updateUI();
+        } else {
+            showStatus("🏁 Último card! Parabéns pelo progresso. Clique em Reiniciar para revisar novamente.", false);
+            setTimeout(() => clearStatus(), 1800);
+        }
+    }
+    
+    // Virar o card (toggle pergunta/resposta)
+    function flipCard() {
+        if (!flashcards.length) return;
+        isFlipped = !isFlipped;
+        updateUI();
+    }
+    
+    // --- FUNÇÃO PRINCIPAL: Gerar perguntas a partir do texto extraído do PDF ---
+    // Algoritmo inteligente para criar perguntas baseadas em sentenças-chave
+    function generateQuestionsFromText(text) {
+        // Limpeza básica: reduzir múltiplos espaços, quebras
+        let cleanText = text.replace(/\s+/g, ' ').trim();
+        if (cleanText.length < 50) {
+            throw new Error("Texto extraído muito curto. Verifique se o PDF possui conteúdo textual legível.");
+        }
+        
+        // Dividir em sentenças (aproximado por pontos, exclamações, interrogações)
+        let sentences = cleanText.split(/(?<=[.!?])\s+/);
+        sentences = sentences.filter(s => s.length > 20 && s.length < 300);
+        
+        if (sentences.length < 3) {
+            // fallback: quebrar por vírgulas ou tópicos
+            sentences = cleanText.split(/[,;:]\s+/).filter(s => s.length > 15);
+        }
+        
+        // Se ainda assim poucas sentenças, usar chunks
+        if (sentences.length < 2) {
+            // chunking: pegar trechos de 150 caracteres
+            sentences = [];
+            for (let i = 0; i < cleanText.length; i += 180) {
+                let chunk = cleanText.substr(i, 160);
+                if (chunk.length > 30) sentences.push(chunk);
+            }
+        }
+        
+        // Limitar no máximo 30 flashcards (para não sobrecarregar)
+        const maxCards = Math.min(sentences.length, 28);
+        const selectedSentences = sentences.slice(0, maxCards);
+        
+        const flashcardsTemp = [];
+        
+        for (let idx = 0; idx < selectedSentences.length; idx++) {
+            let sentence = selectedSentences[idx].trim();
+            if (sentence.length < 10) continue;
+            
+            // Estratégias de geração de pergunta/resposta:
+            // 1. Pergunta factual: extrair substantivos importantes ou ideia central
+            let pergunta = "";
+            let resposta = sentence;
+            
+            // Tenta criar pergunta baseada na sentença:
+            // - Se tiver verbos de ação, pergunta "O que é dito sobre X?"
+            // - Remove partes iniciais comuns.
+            const words = sentence.split(' ');
+            if (words.length > 4) {
+                // detectar possível assunto: primeiros substantivos/ termos
+                let subject = words.slice(0, 4).join(' ');
+                if (subject.length > 40) subject = subject.substring(0, 40);
+                
+                if (sentence.includes(" é ") || sentence.includes(" são ") || sentence.includes("está")) {
+                    pergunta = `❓ O que significa: "${subject}..."?`;
+                } else if (sentence.includes("porque") || sentence.includes("devido a")) {
+                    pergunta = `❓ Por que "${sentence.substring(0, 60)}..."? (Responda com detalhes)`;
+                } else {
+                    pergunta = `📌 Sobre o conteúdo: "${sentence.substring(0, 70)}..."? Explique.`;
+                }
+            } else {
+                pergunta = `❓ Complete ou responda: o que se entende por "${sentence}"?`;
+            }
+            
+            // Personalizar para tornar flashcards mais ricos: às vezes pergunta pode ser muito longa, encurtar
+            if (pergunta.length > 120) pergunta = pergunta.substring(0, 115) + "…?";
+            
+            // Adicionar variação: se a sentença tiver números ou dados, pergunta específica
+            if (/\d+/.test(sentence)) {
+                pergunta = `🔢 Dado numérico/estatística: o que o texto afirma sobre "${sentence.substring(0, 65)}..."?`;
+            }
+            
+            flashcardsTemp.push({
+                pergunta: pergunta,
+                resposta: resposta
+            });
+        }
+        
+        // Se não gerou nenhum card, criar cards artificiais baseados em palavras-chave
+        if (flashcardsTemp.length === 0) {
+            throw new Error("Não foi possível gerar perguntas a partir do PDF. Tente outro arquivo com mais texto.");
+        }
+        
+        // Embaralhar um pouco para estudo mais dinâmico (opcional)
+        for (let i = flashcardsTemp.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [flashcardsTemp[i], flashcardsTemp[j]] = [flashcardsTemp[j], flashcardsTemp[i]];
+        }
+        
+        return flashcardsTemp;
+    }
+    
+    // Extrair texto do PDF usando pdf.js
+    async function extractTextFromPDF(file) {
+        const arrayBuffer = await file.arrayBuffer();
+        const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+        let fullText = "";
+        for (let i = 1; i <= pdf.numPages; i++) {
+            const page = await pdf.getPage(i);
+            const textContent = await page.getTextContent();
+            const pageText = textContent.items.map(item => item.str).join(' ');
+            fullText += pageText + " ";
+        }
+        return fullText;
+    }
+    
+    // Handler principal: gerar flashcards
+    async function handleGenerateFlashcards() {
+        if (!currentFile) {
+            showStatus("⚠️ Por favor, selecione um arquivo PDF primeiro.", true);
+            return;
+        }
+        
+        // Resetar interface
+        clearStatus();
+        showStatus("⏳ Lendo PDF e extraindo texto... Aguarde.", false);
+        generateBtn.disabled = true;
+        
+        try {
+            const extractedText = await extractTextFromPDF(currentFile);
+            if (!extractedText || extractedText.trim().length < 30) {
+                throw new Error("O PDF parece não ter texto legível. Tente um PDF baseado em texto (não imagem escaneada)");
+            }
+            showStatus("🧠 Gerando perguntas inteligentes com base no conteúdo...", false);
+            
+            const newFlashcards = generateQuestionsFromText(extractedText);
+            flashcards = newFlashcards;
+            
+            if (flashcards.length === 0) {
+                throw new Error("Não foi possível gerar flashcards. Tente outro PDF com mais conteúdo descritivo.");
+            }
+            
+            // Resetar estado do app
+            currentIndex = 0;
+            isFlipped = false;
+            viewedCards.clear();
+            
+            // Exibir container de flashcards
+            flashcardContainer.style.display = "block";
+            updateUI();
+            
+            showStatus(`✅ Sucesso! ${flashcards.length} flashcards gerados. Clique no card para ver as respostas.`, false);
+            
+        } catch (err) {
+            console.error(err);
+            showStatus(`❌ Erro: ${err.message}`, true);
+            flashcardContainer.style.display = "none";
+        } finally {
+            generateBtn.disabled = false;
+        }
+    }
+    
+    // Evento de seleção de arquivo
+    pdfInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file && file.type === 'application/pdf') {
+            currentFile = file;
+            fileInfoSpan.innerHTML = `📄 ${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+            // Limpar flashcards anteriores e esconder container
+            flashcards = [];
+            flashcardContainer.style.display = "none";
+            clearStatus();
+        } else if (file) {
+            showStatus("Formato inválido. Selecione um arquivo PDF.", true);
+            currentFile = null;
+            fileInfoSpan.innerHTML = "Nenhum arquivo válido";
+            pdfInput.value = "";
+        } else {
+            currentFile = null;
+            fileInfoSpan.innerHTML = "Nenhum arquivo selecionado";
+            flashcardContainer.style.display = "none";
+        }
+    });
+    
+    // Eventos dos botões
+    generateBtn.addEventListener('click', handleGenerateFlashcards);
+    prevBtn.addEventListener('click', goPrev);
+    nextBtn.addEventListener('click', goNext);
+    flashcardDiv.addEventListener('click', flipCard);
+    resetCardsBtn.addEventListener('click', resetStudySession);
+    
+    // Inicialização (esconder flashcards até primeiro envio)
+    flashcardContainer.style.display = "none";
+    
+    // Mensagem inicial amigável
+    showStatus("📚 Carregue um PDF de estudo (artigo, resumo, apostila) e clique em Gerar Flashcards!", false);
+    setTimeout(() => clearStatus(), 4000);
+</script>
+</body>
+</html>
