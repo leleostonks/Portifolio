@@ -64,6 +64,9 @@ main {
 
 .navbar-logo span,
 .navbar-links a:hover,
+.contact-list a:hover {
+  color: var(--color-accent);
+}
 
 .navbar-links {
   display: flex;
