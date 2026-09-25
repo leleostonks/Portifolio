@@ -13,8 +13,8 @@ export const Hero = () => (
       <a className="btn btn-primary" href="#contato">
         Entre em contato
       </a>
-      <a className="btn" href={import.meta.env.BASE_URL + profile.cv} download>
-        Baixar currículo
+      <a className="btn" href={profile.github} target="_blank" rel="noreferrer">
+        GitHub
       </a>
     </div>
   </section>

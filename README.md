@@ -2,7 +2,6 @@
 
 ### Desenvolvedor de Software · Estudante de Engenharia de Software na FIAP · São Paulo, Brasil
 
-[![Currículo](https://img.shields.io/badge/Currículo-PDF-111827?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)](public/Curriculo_Leonardo_Correia_Moura.pdf)
 [![Email](https://img.shields.io/badge/Email-leocorreiamoura@hotmail.com-0078D4?style=for-the-badge&logo=microsoftoutlook&logoColor=white)](mailto:leocorreiamoura@hotmail.com)
 [![Instagram](https://img.shields.io/badge/Instagram-@leleo__zzz-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/leleo_zzz)
 

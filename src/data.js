@@ -7,7 +7,6 @@ export const profile = {
   email: "leocorreiamoura@hotmail.com",
   github: "https://github.com/leleostonks",
   instagram: "https://instagram.com/leleo_zzz",
-  cv: "Curriculo_Leonardo_Correia_Moura.pdf",
   summary:
     "Estudante de Engenharia de Software na FIAP, com forte interesse em desenvolvimento de sistemas, inteligência artificial e segurança cibernética. Busco uma oportunidade como Desenvolvedor Júnior para transformar conhecimento acadêmico em soluções práticas e eficientes, aliando perfil analítico e grande capacidade de aprendizado contínuo.",
 };
