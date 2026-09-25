@@ -64,10 +64,6 @@ main {
 
 .navbar-logo span,
 .navbar-links a:hover,
-.project-links a,
-.contact-list a:hover {
-  color: var(--color-accent);
-}
 
 .navbar-links {
   display: flex;
@@ -276,30 +272,9 @@ main {
 }
 
 /* Projetos */
-.project {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
 
-.project h3 {
-  font-size: 1.15rem;
-  letter-spacing: normal;
-  text-transform: none;
-  color: var(--color-text);
-  margin: 0;
-}
 
-.project p {
-  color: var(--color-muted);
-  flex: 1;
-}
 
-.project-links {
-  display: flex;
-  gap: 20px;
-  font-weight: 600;
-}
 
 /* Contato */
 .contact-list {

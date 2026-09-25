@@ -77,21 +77,3 @@ export const courses = [
   "Perícia Forense Digital", "Banco de Dados Oracle", "Business Management & IT Services",
 ];
 
-// `demo` é relativo à raiz do site (pasta public/).
-export const projects = [
-  {
-    title: "FlashCards IA",
-    description:
-      "Aplicação web que lê um PDF de estudo direto no navegador e gera flashcards de perguntas e respostas a partir do conteúdo, com navegação e controle de progresso.",
-    tags: ["JavaScript", "HTML", "CSS", "pdf.js"],
-    demo: "projects/flashcards-ia.html",
-    code: "https://github.com/leleostonks/Portifolio/blob/main/public/projects/flashcards-ia.html",
-  },
-  {
-    title: "QA – Inteligência Competitiva Automotiva (Ford · FIAP)",
-    description:
-      "Planejamento de qualidade do desafio Ford na FIAP: backlog com épicos e PBIs, histórias com critérios de aceite em BDD (15 cenários Gherkin), release plan e scripts Python que geram a documentação.",
-    tags: ["Python", "BDD / Gherkin", "Agile", "QA"],
-    code: "https://github.com/leleostonks/ford-/tree/main/qa-sprint3",
-  },
-];

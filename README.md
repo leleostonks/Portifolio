@@ -46,11 +46,6 @@ Estudante de Engenharia de Software na FIAP, com forte interesse em desenvolvime
 
 **Idiomas:** Português · Inglês · Espanhol
 
-## 🚀 Projetos
-
-- **[FlashCards IA](https://leleostonks.github.io/Portifolio/projects/flashcards-ia.html):** lê um PDF de estudo no navegador e gera flashcards de perguntas e respostas. JavaScript + pdf.js.
-- **[QA – Inteligência Competitiva Automotiva (Ford · FIAP)](https://github.com/leleostonks/ford-/tree/main/qa-sprint3):** backlog, histórias com critérios de aceite em BDD (Gherkin), release plan e scripts Python que geram a documentação.
-
 ---
 
 ## Sobre este repositório
